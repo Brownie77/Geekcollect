@@ -5,6 +5,11 @@ export const StyledButton = styled.button`
   border-radius: 4px;
   font-size: 1em;
   cursor: pointer;
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+  position: relative;
+  &:active {
+    top: 2px;
+  }
 
   ${(props) =>
     props.primary &&

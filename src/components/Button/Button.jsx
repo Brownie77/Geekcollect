@@ -5,4 +5,4 @@ function Button(props) {
   return <StyledButton {...props} onClick={props.onClick}></StyledButton>;
 }
 
-export default Button;
+export default StyledButton;
