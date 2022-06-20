@@ -4,6 +4,7 @@ const collectItemSlice = createSlice({
   name: "collectionItems",
   initialState: {
     сollectionItems: [],
+    selectedItemId: null,
   },
   reducers: {
     addCollectionItem(state, action) {
@@ -25,9 +26,16 @@ const collectItemSlice = createSlice({
         item.id === action.payload.id ? { ...item, ...action.payload } : item
       );
     },
+    setSelectedItemIdAction(state, action) {
+      state.selectedItemId = action.payload;
+    },
   },
 });
 
-export const { addCollectionItem, deleteCollectionItem, changeCollectionItem } =
-  collectItemSlice.actions;
+export const {
+  addCollectionItem,
+  deleteCollectionItem,
+  changeCollectionItem,
+  setSelectedItemIdAction,
+} = collectItemSlice.actions;
 export default collectItemSlice.reducer;

@@ -10,18 +10,21 @@ import PageTitle from "../../components/PageTitle";
 import Button from "../../components/Button";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { changeCollectionItem } from "../../store/ItemsCollection/actions";
+import {
+  changeCollectionItem,
+  setSelectedItemIdAction,
+} from "../../store/ItemsCollection/actions";
 import Flex from "../../components/Flex";
 import { CardContainer } from "./styled";
+import { selectedItemInfoSelector } from "../../store/ItemsCollection/selectors";
 
 function ChangeItem() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const { id } = useParams();
-  const [selectedItem] = useSelector((state) =>
-    state.сollectionItems.сollectionItems.filter((item) => item.id === id)
-  );
+  dispatch(setSelectedItemIdAction(id));
+  const [selectedItem] = useSelector(selectedItemInfoSelector);
   const [collectionItem, setCollectionItem] = useState(selectedItem);
   function addTitle(value) {
     setCollectionItem({ ...collectionItem, title: value });
