@@ -1,22 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { Provider } from "react-redux";
 import store from "./store";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import ThemeContext from "./context/context";
+import Theme from "./Theme";
 
 function Main() {
-  const [theme, setTheme] = useState("light");
-
   return (
     <BrowserRouter>
-      <ThemeContext.Provider value={{ theme, setTheme }}>
-        <Provider store={store}>
+      <Provider store={store}>
+        <Theme>
           <App />
-        </Provider>
-      </ThemeContext.Provider>
+        </Theme>
+      </Provider>
     </BrowserRouter>
   );
 }

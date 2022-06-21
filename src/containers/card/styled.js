@@ -1,8 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const CardWrapper = styled.div`
-  padding: 10px;
-  width: 400px;
+  width: 385px;
   background-color: #fff;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
@@ -14,15 +13,31 @@ const CardImage = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+
+  ${(props) =>
+    props.edited &&
+    css`
+      &:hover {
+        webkit-filter: blur(2px); /* Chrome, Safari, Opera */
+        filter: blur(2px);
+      }
+    `}
 `;
-const CardInfoWrapper = styled.div``;
+const CardInfoWrapper = styled.div`
+  padding: 10px;
+`;
 const CardTitle = styled.p`
   font-family: "Staatliches", cursive;
   font-size: 21px;
+  width: 50%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 `;
 const CardDescription = styled.p`
   font-family: "Karla", sans-serif;
   font-size: 16px;
+  overflow-wrap: break-word;
 `;
 
 const CardPrice = styled.p`
@@ -35,6 +50,19 @@ const MainCardInfo = styled.div`
   justify-content: space-between;
 `;
 
+const IconBar = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  background-color: #f0af2d;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  & a,
+  & a:link,
+  & a:visited {
+    color: white;
+  }
+`;
 export {
   CardWrapper,
   CardImage,
@@ -43,4 +71,5 @@ export {
   CardPrice,
   MainCardInfo,
   CardTitle,
+  IconBar,
 };

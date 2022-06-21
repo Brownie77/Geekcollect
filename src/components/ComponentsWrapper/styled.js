@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 const StyledWrapper = styled.div`
@@ -11,8 +10,4 @@ const StyledWrapper = styled.div`
   padding: ${(props) => (props.padding ? `${props.padding}px` : "0px")};
 `;
 
-function ComponentsWrapper(props) {
-  return <StyledWrapper {...props}>{props.children}</StyledWrapper>;
-}
-
-export default ComponentsWrapper;
+export { StyledWrapper };

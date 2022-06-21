@@ -1,18 +1,23 @@
-import React, { useState } from "react";
-import { ImageUpload } from "../ImageUpload";
-import Button from "../UI/Button";
-import Flex from "../UI/Flex";
-import Input from "../UI/Input";
-import TextArea from "../UI/TextArea";
-import ComponentsWrapper from "../UI/ComponentsWrapper";
-import Select from "../UI/Select";
-import PageTitle from "../UI/PageTitle";
+import React, { useState, useId } from "react";
+import { useNavigate } from "react-router-dom";
+import { ImageUpload } from "../components/ImageUpload";
+import Button from "../components/Button";
+import Flex from "../components/Flex";
+import Input from "../components/Input";
+import TextArea from "../components/TextArea/TextArea";
+import ComponentsWrapper from "../components/ComponentsWrapper";
+import Select from "../components/Select/Select";
+import Card from "../containers/Card";
+import PageTitle from "../components/PageTitle";
 import { useDispatch } from "react-redux";
-import { addCollectionItem } from "../../store/collectItemSlice";
+import { addCollectionItem } from "../store/ItemsCollection/actions";
 
 function AddItem() {
+  const uniqueId = useId();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [collectionItem, setCollectionItem] = useState({
+    id: uniqueId,
     title: "",
     collection: "without collection",
     description: "",
@@ -32,16 +37,19 @@ function AddItem() {
 
   const addItem = () => {
     dispatch(addCollectionItem(collectionItem));
+    navigate("/");
   };
   return (
     <>
-      <Flex justify={"center"}>
-        <PageTitle>Add new item to your collection</PageTitle>
-      </Flex>
+      <PageTitle>Add new item to your collection</PageTitle>
       <Flex>
         <Flex direction={"column"} justify={"center"} align="center">
-          <p>{collectionItem.title}</p>
-          <ImageUpload />
+          <Card
+            edited
+            id={collectionItem.id}
+            title={collectionItem.title}
+            description={collectionItem.description}
+          />
         </Flex>
         <Flex direction={"column"}>
           <ComponentsWrapper mb={"10"}>
