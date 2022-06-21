@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Card from "../../containers/Card";
 import Input from "../../components/Input/Input";
 import TextArea from "../../components/TextArea/TextArea";
-import ComponentsWrapper from "../../components/ComponentsWrapper";
+import ComponentsWrapper from "../../components/ComponentsWrapper/ComponentsWrapper";
 import Select from "../../components/Select/Select";
 import PageTitle from "../../components/PageTitle";
 import Button from "../../components/Button";
@@ -23,9 +23,13 @@ function ChangeItem() {
   const navigate = useNavigate();
 
   const { id } = useParams();
-  dispatch(setSelectedItemIdAction(id));
+  useEffect(() => {
+    dispatch(setSelectedItemIdAction(id));
+  }, [id, dispatch]);
+
   const [selectedItem] = useSelector(selectedItemInfoSelector);
   const [collectionItem, setCollectionItem] = useState(selectedItem);
+
   function addTitle(value) {
     setCollectionItem({ ...collectionItem, title: value });
   }
@@ -47,12 +51,7 @@ function ChangeItem() {
       <PageTitle>Edit Your Collection Item</PageTitle>
       <Flex>
         <CardContainer>
-          <Card
-            id={collectionItem.id}
-            title={collectionItem.title}
-            description={collectionItem.description}
-            edited
-          />
+          <Card {...collectionItem} />
         </CardContainer>
         <Flex direction={"column"} justify={"center"}>
           <ComponentsWrapper mb={"10"}>

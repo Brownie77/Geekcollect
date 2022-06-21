@@ -5,7 +5,6 @@ import { options } from "./constans";
 function Select(props) {
   return (
     <StyledSelect
-      {...props}
       onChange={(e) => props.select(e.target.value)}
       id="select-collection"
       name="select"

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StyledRoot = styled.div`
   width: 100%;
-  min-height: 100%;
+  min-height: calc(100% - 90px);
   background-color: #e5e5f7;
   opacity: 1;
   background-color: #e5e5f7;
