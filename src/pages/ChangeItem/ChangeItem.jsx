@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
+=======
+import React, { useEffect } from "react";
+>>>>>>> 38d5df3 (fix input extend, moved dispatch to useEffect)
 =======
 import React, { useEffect } from "react";
 >>>>>>> 38d5df3 (fix input extend, moved dispatch to useEffect)
@@ -28,6 +32,7 @@ function ChangeItem() {
 
   const { id } = useParams();
 <<<<<<< HEAD
+<<<<<<< HEAD
   useEffect(() => {
     dispatch(setSelectedItemIdAction(id));
   }, [id, dispatch]);
@@ -48,6 +53,8 @@ function ChangeItem() {
 
   const changeItem = () => {
 =======
+=======
+>>>>>>> 38d5df3 (fix input extend, moved dispatch to useEffect)
   // dispatch(setSelectedItemIdAction(id));
   const selectedItem = useSelector(selectedItemInfoSelector); //TODO change name - "initial item info"
   const itemCollection = useSelector((state) =>
@@ -69,6 +76,7 @@ function ChangeItem() {
   return (
     <>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <PageTitle>Edit Your Collection Item</PageTitle>
       <Flex>
         <CardContainer>
@@ -88,6 +96,8 @@ function ChangeItem() {
         </Flex>
       </Flex>
 =======
+=======
+>>>>>>> 38d5df3 (fix input extend, moved dispatch to useEffect)
       {id ? (
         <HandleItemInfo
           selectedItem={selectedItem}
@@ -99,6 +109,9 @@ function ChangeItem() {
       ) : (
         <p>Wait, data is loading...</p>
       )}
+<<<<<<< HEAD
+>>>>>>> 38d5df3 (fix input extend, moved dispatch to useEffect)
+=======
 >>>>>>> 38d5df3 (fix input extend, moved dispatch to useEffect)
     </>
   );
