@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import UploadFileButton from "../../components/UploadFileButton";
+
 import {
   CardWrapper,
   CardImage,
   CardDescription,
-  CardDescriptionWrapper,
   CardInfoWrapper,
   CardPrice,
   MainCardInfo,
   CardTitle,
   IconBar,
-  CollectionName,
 } from "./styled";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
@@ -41,13 +41,9 @@ function Card({ edited, id, price, title, description, collection }) {
       <CardInfoWrapper>
         <MainCardInfo>
           <CardTitle>{title}</CardTitle>
-          <CardPrice>{price ? `$${price}` : "Not For Sale"}</CardPrice>
+          <CardPrice>{price ? price : "Not For Sale"}</CardPrice>
         </MainCardInfo>
-        <CollectionName>Collection: {collection}</CollectionName>
-
-        <CardDescriptionWrapper>
-          <CardDescription>{description}</CardDescription>
-        </CardDescriptionWrapper>
+        <CardDescription>{description}</CardDescription>
       </CardInfoWrapper>
     </CardWrapper>
   );

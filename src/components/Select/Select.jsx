@@ -1,31 +1,20 @@
-import React, { useState } from "react";
-import CreatableSelect from "react-select/creatable";
+import React from "react";
+import { StyledSelect } from "./styled";
+import { options } from "./constans";
 
-function Select({ select, selectedItem, options, onKeyDown }) {
-  const [stateOptions, setOptions] = useState(options);
-  const [selectedValue, setSelectedValue] = useState(selectedItem);
-  const createOption = (label) => ({
-    label,
-    value: label.toLowerCase().replace(/\W/g, ""),
-  });
-  const handleCreate = (option) => {
-    const newOption = createOption(option);
-    setOptions([...stateOptions, newOption]);
-    setSelectedValue(newOption);
-    select(newOption);
-  };
+function Select(props) {
   return (
-    <CreatableSelect
-      onChange={(e) => {
-        select(e);
-        setSelectedValue(e);
-      }}
-      onCreateOption={handleCreate}
-      options={stateOptions}
-      value={selectedValue}
-      defaultValue={selectedItem}
-      onKeyDown={onKeyDown}
-    ></CreatableSelect>
+    <StyledSelect
+      onChange={(e) => props.select(e.target.value)}
+      id="select-collection"
+      name="select"
+    >
+      {options.map((option) => (
+        <option key={option.id} value={option.key}>
+          {option.value}
+        </option>
+      ))}
+    </StyledSelect>
   );
 }
 

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import ComponentsWrapper from "./ComponentsWrapper/ComponentsWrapper";
+import ComponentsWrapper from "./ComponentsWrapper";
 
 const StyledUploadFileButton = styled.input`
   display: none;

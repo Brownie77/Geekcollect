@@ -18,8 +18,6 @@ function Collection() {
         collectionItems.map((item) => {
           return (
             <Card
-              price={item.price}
-              collection={item.collection}
               key={item.id}
               id={item.id}
               title={item.title}
