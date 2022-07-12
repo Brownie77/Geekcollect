@@ -1,8 +1,7 @@
 import "./App.css";
 import "./styles/normalize.css";
 import AddItem from "./pages/AddItem";
-import { Routes, Route } from "react-router-dom";
-
+import { Routes, Route, Link } from "react-router-dom";
 import NotFound from "./pages/NotFound";
 import Collection from "./pages/Collection/index";
 import Explore from "./pages/Explore";

@@ -11,7 +11,6 @@ const collectItemSlice = createSlice({
       state.сollectionItems.push({
         id: action.payload.id,
         title: action.payload.title,
-        price: action.payload.price,
         collection: action.payload.collection,
         description: action.payload.description,
         photo: "https://picsum.photos/200/300",
