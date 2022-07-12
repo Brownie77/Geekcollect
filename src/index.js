@@ -16,6 +16,7 @@ function Main() {
           <PersistGate loading={null} persistor={persistor}>
             <App />
           </PersistGate>
+          <App />
         </Theme>
       </Provider>
     </BrowserRouter>

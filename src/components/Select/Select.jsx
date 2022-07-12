@@ -28,4 +28,5 @@ function Select({ select, selectedItem, options, onKeyDown }) {
     ></CreatableSelect>
   );
 }
+
 export default Select;
