@@ -3,7 +3,10 @@ import { StyledTextArea } from "./styled";
 
 function TextArea(props) {
   return (
-    <StyledTextArea onChange={(e) => props.changeDescription(e.target.value)} />
+    <StyledTextArea
+      value={props.value}
+      onChange={(e) => props.changeDescription(e.target.value)}
+    />
   );
 }
 

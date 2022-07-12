@@ -1,3 +1,18 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addCollectionItem } from "../store/ItemsCollection/actions";
+import { addCollectionAction } from "../store/Collections/actions";
+import HandleItemInfo from "../containers/HandleItemInfo";
+
+function AddItem() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const addItem = (collectionItem, selectedOptionValue) => {
+    dispatch(addCollectionItem(collectionItem));
+   
+    dispatch(addCollectionAction(selectedOptionValue));
 import React, { useState, useId } from "react";
 import { useNavigate } from "react-router-dom";
 import { ImageUpload } from "../components/ImageUpload";
@@ -41,34 +56,12 @@ function AddItem() {
   };
   return (
     <>
-      <PageTitle>Add new item to your collection</PageTitle>
-      <Flex>
-        <Flex direction={"column"} justify={"center"} align="center">
-          <Card
-            edited
-            id={collectionItem.id}
-            title={collectionItem.title}
-            description={collectionItem.description}
-          />
-        </Flex>
-        <Flex direction={"column"}>
-          <ComponentsWrapper mb={"10"}>
-            <Select select={changeItemCollection} />
-          </ComponentsWrapper>
-          <Input
-            onChange={addTitle}
-            type="text"
-            name="collection-name"
-            id="collectionName"
-          />
-          <ComponentsWrapper mb={"5"} mt={"10"}>
-            <TextArea changeDescription={changeNewItemDescription} />
-          </ComponentsWrapper>
-          <Button onClick={addItem} warning>
-            Add
-          </Button>
-        </Flex>
-      </Flex>
+      <HandleItemInfo
+        pageTitle={"Add New Collection Item"}
+        buttonText={"Add"}
+        onSubmit={addItem}
+      />
+
     </>
   );
 }

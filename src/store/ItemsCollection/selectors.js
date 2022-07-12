@@ -5,14 +5,7 @@ const collectionItemIdSelector = (state) =>
   state.сollectionItems.selectedItemId;
 const selectedItemInfoSelector = createSelector(
   [collectionSelector, collectionItemIdSelector],
-  (items, id) => items.filter((item) => item.id === id)
+  (items, id) => items.find((item) => item.id === id)
 );
 
-const itemFromCollectionSelector = (state, id) =>
-  state.сollectionItems.сollectionItems.filter((item) => item.id === id);
-
-export {
-  collectionSelector,
-  itemFromCollectionSelector,
-  selectedItemInfoSelector,
-};
+export { collectionSelector, selectedItemInfoSelector };
