@@ -5,6 +5,7 @@ const CardWrapper = styled.div`
   background-color: #fff;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  border-bottom: 4px solid #f0af2d;
 `;
 const CardImage = styled.div`
   background-image: url("https://picsum.photos/id/237/200/300");
@@ -34,6 +35,13 @@ const CardTitle = styled.p`
   white-space: nowrap;
   overflow: hidden;
 `;
+
+const CardDescriptionWrapper = styled.div`
+  background-color: #eeeeee;
+  padding: 5px;
+  border-radius: 4px;
+`;
+
 const CardDescription = styled.p`
   font-family: "Karla", sans-serif;
   font-size: 16px;
@@ -63,13 +71,21 @@ const IconBar = styled.div`
     color: white;
   }
 `;
+
+const CollectionName = styled.p`
+  font-family: "Karla", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+`;
 export {
   CardWrapper,
   CardImage,
+  CardDescriptionWrapper,
   CardDescription,
   CardInfoWrapper,
   CardPrice,
   MainCardInfo,
   CardTitle,
   IconBar,
+  CollectionName,
 };

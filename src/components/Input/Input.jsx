@@ -1,14 +1,15 @@
 import React from "react";
 import { CustomInput } from "./styled";
 
-function Input(props) {
+const Input = React.forwardRef(({ onChange, placeholder, value }, ref) => {
   return (
     <CustomInput
-      {...props}
-      onChange={(e) => props.onChange(e.target.value)}
+      value={value}
+      ref={ref}
+      onChange={(e) => onChange(e.target.value)}
       type="text"
-      placeholder="Add Name..."
+      placeholder={placeholder}
     ></CustomInput>
   );
-}
+});
 export default Input;
