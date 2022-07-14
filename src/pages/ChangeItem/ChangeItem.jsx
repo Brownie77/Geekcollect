@@ -62,7 +62,6 @@ function ChangeItem() {
   const itemCollection = useSelector((state) =>
     collectionDetailSelector(state, collection)
   );
-  console.log(`itemCollection`, itemCollection);
   useEffect(() => {
     dispatch(setSelectedItemIdAction(id));
   }, [id, dispatch]);
