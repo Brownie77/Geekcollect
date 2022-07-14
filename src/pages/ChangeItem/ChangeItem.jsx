@@ -57,13 +57,12 @@ function ChangeItem() {
 >>>>>>> 38d5df3 (fix input extend, moved dispatch to useEffect)
   // dispatch(setSelectedItemIdAction(id));
   const selectedItem = useSelector(selectedItemInfoSelector); //TODO change name - "initial item info"
+  const collection =
+    selectedItem && selectedItem.collection ? selectedItem.collection : "";
   const itemCollection = useSelector((state) =>
-    collectionDetailSelector(
-      state,
-      selectedItem.collection ? selectedItem.collection : ""
-    )
+    collectionDetailSelector(state, collection)
   );
-
+  console.log(`itemCollection`, itemCollection);
   useEffect(() => {
     dispatch(setSelectedItemIdAction(id));
   }, [id, dispatch]);
@@ -75,6 +74,7 @@ function ChangeItem() {
 
   return (
     <>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       <PageTitle>Edit Your Collection Item</PageTitle>
@@ -99,6 +99,9 @@ function ChangeItem() {
 =======
 >>>>>>> 38d5df3 (fix input extend, moved dispatch to useEffect)
       {id ? (
+=======
+      {selectedItem ? (
+>>>>>>> 798a48b (add mockapi preload data)
         <HandleItemInfo
           selectedItem={selectedItem}
           itemCollection={itemCollection}
