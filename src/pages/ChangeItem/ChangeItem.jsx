@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
+=======
+import React, { useEffect } from "react";
+>>>>>>> 38d5df3 (fix input extend, moved dispatch to useEffect)
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Card from "../../containers/Card";
@@ -23,6 +27,7 @@ function ChangeItem() {
   const navigate = useNavigate();
 
   const { id } = useParams();
+<<<<<<< HEAD
   useEffect(() => {
     dispatch(setSelectedItemIdAction(id));
   }, [id, dispatch]);
@@ -42,12 +47,28 @@ function ChangeItem() {
   }
 
   const changeItem = () => {
+=======
+  // dispatch(setSelectedItemIdAction(id));
+  const selectedItem = useSelector(selectedItemInfoSelector); //TODO change name - "initial item info"
+  const itemCollection = useSelector((state) =>
+    collectionDetailSelector(
+      state,
+      selectedItem.collection ? selectedItem.collection : ""
+    )
+  );
+
+  useEffect(() => {
+    dispatch(setSelectedItemIdAction(id));
+  }, [id, dispatch]);
+  const changeItem = (collectionItem, selectedOptionValue) => {
+>>>>>>> 38d5df3 (fix input extend, moved dispatch to useEffect)
     dispatch(changeCollectionItem(collectionItem));
     navigate("/");
   };
 
   return (
     <>
+<<<<<<< HEAD
       <PageTitle>Edit Your Collection Item</PageTitle>
       <Flex>
         <CardContainer>
@@ -66,6 +87,19 @@ function ChangeItem() {
           </Button>
         </Flex>
       </Flex>
+=======
+      {id ? (
+        <HandleItemInfo
+          selectedItem={selectedItem}
+          itemCollection={itemCollection}
+          pageTitle={"Edit Your Collection Item"}
+          onSubmit={changeItem}
+          buttonText={"Change"}
+        />
+      ) : (
+        <p>Wait, data is loading...</p>
+      )}
+>>>>>>> 38d5df3 (fix input extend, moved dispatch to useEffect)
     </>
   );
 }
